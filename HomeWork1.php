@@ -25,7 +25,7 @@ if ($age >= 18 and $age <= 65) {
 }
 if ($age > 65) {
     echo "Вам пора на пенсию";
-} elseif ($age >= 1 and $age < 17) {
+} elseif ($age >= 1 and $age <= 17) {
     echo "Вам ещё рано работать";
 } else {
     echo "Неизвестный возраст";
@@ -52,20 +52,26 @@ switch ($day= mt_rand()) {
 echo '<br />';
 echo "<h1>Задание 5</h1>";
 echo '<br />';
-$car = array ($bmw, $toyota, $opel);
 $bmw = array("model"=>"X5", "speed"=>120, "doors"=>5, "year"=>"2015");
 $toyota = array("model"=>"Highlander", "speed"=>150, "doors"=>5, "year"=>"2018");
 $opel = array("model"=>"Kadet", "speed"=>110, "doors"=>3, "year"=>"2011");
-echo 'CAR - BMW';
-echo '<br />';
-echo $bmw["model"].'-'. $bmw["speed"].'-'. $bmw["doors"].'-'. $bmw["year"];
-echo '<br />';
-echo 'CAR - TOYOTA';
-echo '<br />';
-echo $toyota["model"].'-'. $toyota["speed"].'-'. $toyota["doors"].'-'. $toyota["year"];
-echo '<br />';
-echo 'CAR - OPEL';
-echo '<br />';
-echo $opel["model"].'-'. $opel["speed"].'-'. $opel["doors"].'-'. $opel["year"];
-echo '<br />';
+$cars = array ($bmw, $toyota, $opel);
+foreach ($cars as $car) {
+    echo "CAR ".$car['model'].'<br />';
+    echo $car["model"].'-'. $car["speed"].'-'. $car["doors"].'-'. $car["year"].'<br />';
+}
 echo "<h1>Задание 6</h1>";
+echo "<table border='1' cellpadding='2'>";
+for ($i=1; $i<11; $i++) {
+    echo "<tr>";
+    for ($j=1; $j<11; $j++) {
+        $z = $i * $j;
+        if ($z % 2 == 0) {
+            echo "<td>" . $i . "*" . $j . "=(" . $z . ")";
+        } else {
+            echo "<td>" . $i . "*" . $j . "=[" . $z . "]";
+        }
+    }
+    echo "</<tr>";
+}
+echo "</table>";
