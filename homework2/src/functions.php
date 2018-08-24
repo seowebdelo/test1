@@ -15,6 +15,7 @@ echo "<p>Задание 2</p>";
 function task2($calc)
 {
     $arr = func_get_args();
+    unset ($arr[0]);
     echo implode($calc, $arr).' = ';
     $count = 0;
     foreach ($arr as $k => $item) {
@@ -33,7 +34,10 @@ function task2($calc)
                     $count /= $item;
                     break;
             }
-        } else {
+        } elseif (($item == 0) && ($calc == '/')) {
+            echo "На ноль делить нельзя";
+        }
+        else {
             $count = $item;
         }
     }
