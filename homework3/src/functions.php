@@ -93,15 +93,31 @@ function task3($limit, $min, $max)
     for ($i = 0; $i < $limit; $i++) {
         $arr[$i] = rand($min, $max);
     }
-    return $arr;
+    $fp = fopen('random.csv', 'w');
+    fputcsv($fp, $arr, ';');
+    fclose($fp);
 }
 $result= task3(50, 1, 100);
 print_r($result);
+function summaryCSV()
+{
+    $csvPath = 'random.csv';
+    $csvFile = fopen($csvPath, "r");
+    $csvData = fgetcsv($csvFile, 200, ";");
+    $res[] = $csvData;
 
+    $count = 0;
 
-//$fp = fopen('random.csv', 'w');
-//foreach ($result as $fields) {
-//    fputcsv($fp, $fields, ';');
-//}
-//fclose($fp);
-//echo 'Файл успешно записан';
+    foreach ($res as $key => $value) {
+        foreach ($value as $k => $v) {
+            if ($v % 2 == 0) {
+                $count += $v;
+            }
+        }
+    }
+
+    echo 'Сумма все четных чисел - ', $count;
+
+}
+
+summaryCSV();
