@@ -2,14 +2,14 @@
 $dsn = "mysql:host=localhost;dbname=burger;charset=utf8";
 $pdo = new PDO($dsn, 'root', '');
 if (!empty($_POST['name']) AND !empty($_POST['email']) AND !empty($_POST['tel'])){
-    $name .= $_POST['name'];
-    $email .= $_POST['email'];
-    $tel .= $_POST['tel'];
-    $street .= $_POST['street'];
-    $home .= $_POST['home'];
-    $housing .= $_POST['housing'];
-    $flat .= $_POST['flat'];
-    $floor .= $_POST['floor'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $tel = $_POST['tel'];
+    $street = $_POST['street'];
+    $home = $_POST['home'];
+    $housing = $_POST['housing'];
+    $flat = $_POST['flat'];
+    $floor = $_POST['floor'];
 }
 else {
     echo "Ошибка: Заполните все поля!";
