@@ -122,13 +122,15 @@ function summaryCSV()
 
 summaryCSV();
 echo "<p>Задание 4</p>";
-function Wiki () {
-    $url = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
-    $decoded = json_decode($url);
-    $decoded = array();
-    echo '<pre>';
-    //print_r($decoded);
-    $key = array_search('page_id' && 'title', $decoded);
-    echo $key;
+function jsonWiki()
+{
+    $data = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
+    $decoded = json_decode($data, true);
+  $params = ["title", "pageid"];
+    $result = array_shift($decoded["query"]["pages"]);
+//  print_r($result);
+    foreach ($params as $value) {
+        echo "<br>" . $value . " = " . $result[$value];
+    }
 }
-Wiki();
+JsonWiki();
