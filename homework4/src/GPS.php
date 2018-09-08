@@ -2,7 +2,7 @@
 namespace Src;
 trait GPS
 {
-    public function gpsSum() {
-        return 0.25;
+    public function gpsSum($spendTime) {
+        return ceil($spendTime)*15;
     }
 }
