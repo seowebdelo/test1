@@ -1,0 +1,1 @@
+INSERT INTO burger.users (id, name, email, tel) VALUES (1, 'Попов Андрей', 'popov@popov.ru', '+7 (456) 456 45 64');
